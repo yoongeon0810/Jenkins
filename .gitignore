@@ -1,0 +1,6 @@
+.qbcache/
+.gradle/
+.vscode/launch.json
+.vs/
+.vscode/
+jenkins_home

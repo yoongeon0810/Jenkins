@@ -1,0 +1,24 @@
+# This file is intended to be used from CI with removing unnecessary port forwarding to host to avoid any conflict
+version: '3.4'
+services: # to override with .prod.yaml, run -> "$ docker-compose -f docker-compose.yaml -f docker-compose.prod.yaml up"  (-d: detach option can be used)
+  jenkins:
+    restart: always
+    container_name: jenkins
+    image: jenkins/jenkins
+    # build:
+    #   context: ./
+    #   target: prod
+    ports:
+    - "8080:8080"
+    volumes:
+    - "$PWD/jenkins_home:/var/jenkins_home"
+    environment:
+      - NODE_ENV=production
+
+
+networks: # the basic bridge network, analogues to 'docker network create'
+  backend:
+    driver: bridge
+
+#volumes: # named volume, analogues to running 'docker volume create'
+#  jenkins_home:
