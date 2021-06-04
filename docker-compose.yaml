@@ -3,7 +3,7 @@ version: '3.4'
 services: # to override with .prod.yaml, run -> "$ docker-compose -f docker-compose.yaml -f docker-compose.prod.yaml up"  (-d: detach option can be used)
   jenkins:
     restart: always
-    container_name: jenkins
+    container_name: jenkins-test
     image: jenkins/jenkins
     # build:
     #   context: ./
